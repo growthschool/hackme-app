@@ -6,6 +6,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @comments = @event.comments
+
+    if params[:keyword]
+      @comments = @comments.where( "comments.content LIKE '%#{params[:keyword]}%'")
+    end
+
   end
 
 end

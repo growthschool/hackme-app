@@ -2,7 +2,15 @@
 
 <%= simple_format @event.description %>
 
-<% @event.comments.each do |comment| %>
+
+<%= form_tag event_path(@event), :method => :get do %>
+  <p>
+    <%= text_field_tag "keyword" %>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
+
+<% @comments.each do |comment| %>
   <div id="comment-<%= comment.id%>" class="panel panel-default <%= (comment.highlight_at.present?)? "highlight" : "" %>">
     <div class="panel-heading">
       <%= user_avatar_link(comment.author) %>
