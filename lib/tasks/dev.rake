@@ -7,8 +7,8 @@ namespace :dev do
 
     users = []
     users << User.create!( :email => "admin@example.org", :password => "12345678", :role => "admin" )
-    users << User.create!( :email => "user1@example.org", :password => "12345678" )
-    users << User.create!( :email => "user2@example.org", :password => "12345678" )
+    users << User.create!( :email => "hacker@example.org", :password => "12345678" )
+    users << User.create!( :email => "ihower@gmail.com", :password => "12345678" )
 
     10.times do |i|
       event = Event.create!( :name => Faker::Cat.name,

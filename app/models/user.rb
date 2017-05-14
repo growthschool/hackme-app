@@ -11,7 +11,7 @@ class User < ApplicationRecord
   end
 
   def display_name
-    self.email.split("@").first
+    self.nickname.presence || self.email.split("@").first
   end
 
 end

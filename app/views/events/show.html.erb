@@ -1,17 +1,15 @@
 <h1><%= @event.name %></h1>
 
-
 <%= simple_format @event.description %>
 
-
 <% @event.comments.each do |comment| %>
-  <div class="panel panel-default">
+  <div id="comment-<%= comment.id%>" class="panel panel-default">
     <div class="panel-heading">
-      <%= comment.author.display_name %>
+      <%= user_avatar_link(comment.author) %>
     </div>
 
     <div class="panel-body">
-      <%= comment.content %>
+      <%= raw comment.content %>
     </div>
 
     <div class="panel-footer text-right">
