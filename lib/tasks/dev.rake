@@ -5,7 +5,9 @@ namespace :dev do
     Event.delete_all
 
     users = []
-    users << User.create!( :email => "admin@example.org", :password => "12345678" )
+    users << User.create!( :email => "admin@example.org", :password => "12345678", :role => "admin" )
+    users << User.create!( :email => "user1@example.org", :password => "12345678" )
+    users << User.create!( :email => "user2@example.org", :password => "12345678" )
 
     10.times do |i|
       users << User.create!( :email => Faker::Internet.email, :password => "12345678")
