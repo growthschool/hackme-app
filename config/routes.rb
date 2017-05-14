@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :users
 
   resources :events do
-    resources :comments
+    resources :comments do
+      member do
+        get :highlight
+      end
+    end
   end
 
   namespace :admin do

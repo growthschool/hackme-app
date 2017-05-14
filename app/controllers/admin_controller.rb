@@ -7,11 +7,4 @@ class AdminController < ApplicationController
 
   layout "admin"
 
-  def require_admin!
-    unless current_user.is_admin?
-      flash[:alert] = "您的權限不足"
-      redirect_to root_path
-    end
-  end
-
 end
