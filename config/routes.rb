@@ -12,6 +12,21 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :cart do
+    collection do
+      post :clean
+      post :checkout
+    end
+  end
+
+  resources :cart_items
+
+  resources :products do
+    member do
+      post :add_to_cart
+    end
+  end
+
   namespace :admin do
     root "events#index"
     resources :events
