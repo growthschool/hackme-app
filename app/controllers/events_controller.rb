@@ -12,6 +12,10 @@ class EventsController < ApplicationController
       @comments = @comments.where( "comments.content LIKE '%#{params[:keyword]}%'")
     end
 
+    if params[:sort]
+      @comments = @comments.order(params[:sort])
+    end
+
   end
 
 end

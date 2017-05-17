@@ -5,10 +5,15 @@
 
 <%= form_tag event_path(@event), :method => :get do %>
   <p>
-    <%= text_field_tag "keyword" %>
+    <%= text_field_tag "keyword", "", :size => 50 %>
     <%= submit_tag "Search" %>
   </p>
 <% end %>
+
+<p>
+  <%= link_to "新留言在上", event_path(@event, :sort => "id DESC") %>
+  <%= link_to "舊留言在上", event_path(@event, :sort => "id ASC") %>
+</p>
 
 <% @comments.each do |comment| %>
   <div id="comment-<%= comment.id%>" class="panel panel-default <%= (comment.highlight_at.present?)? "highlight" : "" %>">
