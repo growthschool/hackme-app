@@ -10,13 +10,20 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    params[:user].permit!
+    # params[:user].permit!
 
-    if @user.update(params[:user])
+    # if @user.update(params[:user])
+    if @user.update(user_params)
       redirect_to user_path(@user)
     else
       render "edit"
     end
+  end
+
+  protected
+
+  def user_params
+    params.require(:user).permit(:nickname)
   end
 
 end
