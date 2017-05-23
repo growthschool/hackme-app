@@ -7,9 +7,10 @@ module UsersHelper
     email_md5 = Digest::MD5.hexdigest(user.email)
     gravatar_url = "https://www.gravatar.com/avatar/#{email_md5}"
 
-    str = "<div class ='user-link'>" + link_to(image_tag(gravatar_url), user_path(user)) + " " + user.display_name + "</div>"
+    content_tag(:div,
+      link_to(image_tag(gravatar_url), user_path(user)) + " " + user.display_name ,
+      :class => "user-link" )
 
-    str.html_safe
   end
 
 end
