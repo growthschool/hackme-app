@@ -1,37 +1,35 @@
 Rails.application.routes.draw do
+    devise_for :users
 
-  devise_for :users
+    resources :users
 
-  resources :users
-
-  resources :events do
-    resources :comments do
-      member do
-        get :highlight
-      end
+    resources :events do
+        resources :comments do
+            member do
+                post :highlight
+            end
+        end
     end
-  end
 
-  resource :cart do
-    collection do
-      post :clean
-      post :checkout
+    resource :cart do
+        collection do
+            post :clean
+            post :checkout
+        end
     end
-  end
 
-  resources :cart_items
+    resources :cart_items
 
-  resources :products do
-    member do
-      post :add_to_cart
+    resources :products do
+        member do
+            post :add_to_cart
+        end
     end
-  end
 
-  namespace :admin do
-    root "events#index"
-    resources :events
-  end
+    namespace :admin do
+        root 'events#index'
+        resources :events
+    end
 
-  root "events#index"
-
+    root 'events#index'
 end
