@@ -39,7 +39,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'rack-attack'
 group :development, :test do
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,6 +47,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'brakeman'
+  gem 'bundler-audit'
   gem 'faker'
 
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
