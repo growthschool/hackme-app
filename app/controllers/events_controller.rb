@@ -9,7 +9,8 @@ class EventsController < ApplicationController
     @comments = @event.comments
 
     if params[:keyword]
-      @comments = @comments.where( "comments.content LIKE '%#{params[:keyword]}%'")
+      keyword = ActiveRecord::Base::connection.quote_string( params[:keyword] )
+      @comments = @comments.where( "comments.content LIKE '%#{keyword}%'")
     end
 
     if params[:sort]
