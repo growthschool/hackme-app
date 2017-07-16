@@ -15,6 +15,8 @@ gem 'devise'
 
 gem 'awesome_rails_console'
 
+gem 'rack-attack'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

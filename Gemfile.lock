@@ -110,6 +110,8 @@ GEM
       pry (>= 0.10.4)
     puma (3.8.2)
     rack (2.0.1)
+    rack-attack (5.0.1)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.2)
@@ -214,6 +216,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   puma (~> 3.0)
+  rack-attack
   rails (~> 5.0.2)
   rspec-rails
   sass-rails (~> 5.0)
