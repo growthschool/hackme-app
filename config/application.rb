@@ -13,6 +13,8 @@ module RailsRecipes
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = "Beijing"
 
+    config.middleware.use Rack::Attack
+
   end
 end
 
