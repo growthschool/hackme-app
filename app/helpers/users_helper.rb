@@ -11,7 +11,9 @@ module UsersHelper
 
     # str.html_safe
 
-    "<div class='user-link'>".html_safe + link_to(image_tag(gravatar_url), user_path(user)) + " " + user.display_name + "<div>".html_safe
+    content_tag(:div,
+      link_to(image_tag(gravatar_url), user_path(user)) + " " + user.display_name,
+      :class => "user-link")
   end
 
 end
