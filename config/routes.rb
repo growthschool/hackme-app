@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments do
       member do
-        get :highlight
+        # get :highlight # avoid CSRF attack
+        post :highlight
       end
     end
   end
