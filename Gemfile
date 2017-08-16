@@ -48,6 +48,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bundler-audit'
   gem 'brakeman'
   gem 'faker'
 
