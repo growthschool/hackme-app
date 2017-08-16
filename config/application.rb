@@ -12,10 +12,9 @@ module RailsRecipes
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = "Beijing"
+    config.middleware.use Rack::Attack 
 
   end
 end
 
 Time::DATE_FORMATS.merge!(:default => '%Y/%m/%d %I:%M %p', :ymd => '%Y/%m/%d')
-
-config.middleware.use Rack::Attack 
