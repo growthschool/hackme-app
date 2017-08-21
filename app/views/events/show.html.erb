@@ -2,13 +2,20 @@
 
 <%= simple_format @event.description %>
 
-
-<%= form_tag event_path(@event), :method => :get do %>
-  <p>
-    <%= text_field_tag "keyword", "", :size => 50 %>
-    <%= submit_tag "Search" %>
-  </p>
-<% end %>
+<div class="row">
+  <div class="col-md-5">
+    <%= form_tag event_path(@event), :method => :get do %>
+      <div class="input-group">
+        <%= text_field_tag "keyword", "", :placeholder => "comemnts.content", :size => 50, :class => "form-control" %>
+        <div class="input-group-btn">
+          <%= button_tag :type => "submit", :class => "btn btn-default" do %>
+          <i class="fa fa-search"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <p>
   <%= link_to "新留言在上", event_path(@event, :sort => "id DESC") %>
@@ -22,14 +29,14 @@
     </div>
 
     <div class="panel-body">
-      <%= raw comment.content %>
+      <%= sanitize comment.content %>
     </div>
 
     <div class="panel-footer text-right">
       <%= comment.created_at.to_s %>
 
       <% if current_user && current_user.is_admin? %>
-        <%= link_to "Highligh", highlight_event_comment_path(@event, comment), :class => "btn btn-default" %>
+        <%= link_to "Highligh", highlight_event_comment_path(@event, comment), :method => :post, :class => "btn btn-default" %>
       <% end %>
 
       <% if comment.can_deleted_by(current_user) %>
