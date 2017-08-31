@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     @comments = @event.comments
 
     if params[:keyword]
-      @comments = @comments.where( "comments.content LIKE '%#{params[:keyword]}%'")
+      @comments = @comments.where( "comments.content LIKE ?","%#{params[:keyword]}%")
     end
 
     if params[:sort]
