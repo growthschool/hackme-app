@@ -39,9 +39,11 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'rack-attack'
 group :development, :test do
   gem 'rspec-rails'
+  gem 'brakeman'
+  gem 'bundler-audit'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
