@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments do
       member do
-        get :highlight
+        post :highlight
       end
     end
   end
