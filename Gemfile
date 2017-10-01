@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'activerecord-session_store'
+gem 'rack-attack'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -48,6 +50,8 @@ end
 
 group :development do
   gem 'faker'
+  gem 'brakeman'
+  gem 'bundler-audit'
 
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
