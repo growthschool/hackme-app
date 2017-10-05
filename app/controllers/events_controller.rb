@@ -15,7 +15,7 @@ class EventsController < ApplicationController
 
     end
 
-    if params[:sort]
+    if params[:sort] && ["id DESC", "id ASC"].include?(params[:sort])  # 只有白名单内的参数可以用
       @comments = @comments.order(params[:sort])
     end
 
