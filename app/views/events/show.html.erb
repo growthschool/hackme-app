@@ -22,14 +22,15 @@
     </div>
 
     <div class="panel-body">
-      <%= raw comment.content %>
+      <%#= raw comment.content %>
+      <%= sanitize comment.content %>
     </div>
 
     <div class="panel-footer text-right">
       <%= comment.created_at.to_s %>
 
       <% if current_user && current_user.is_admin? %>
-        <%= link_to "Highligh", highlight_event_comment_path(@event, comment), :class => "btn btn-default" %>
+        <%= link_to "Highligh", highlight_event_comment_path(@event, comment), :method => :post, :class => "btn btn-default" %>
       <% end %>
 
       <% if comment.can_deleted_by(current_user) %>
