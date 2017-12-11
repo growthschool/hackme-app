@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
   def show
-    @user = User.find( params[:id] )
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -14,14 +13,13 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
-      render "edit"
+      render 'edit'
     end
   end
 
   protected
 
   def user_params
-    params.require(:user).permit(:nickname, :role)
+    params.require(:user).permit(:nickname)
   end
-
 end

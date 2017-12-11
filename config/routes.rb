@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users
 
   resources :users
@@ -7,7 +6,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments do
       member do
-        get :highlight
+        post :highlight
       end
     end
   end
@@ -28,10 +27,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root "events#index"
+    root 'events#index'
     resources :events
   end
 
-  root "events#index"
-
+  root 'events#index'
 end
